@@ -48,12 +48,12 @@ void carregar (vector<aluno> & lista) {
 
 }
 
-void conferir (vector<aluno> & lista) {
-    int x;
+    void conferir (vector<aluno> & lista) {
+        int x;
 
-    x=68*25/100;
+        x=68*25/100;
 
-}
+    }
 
 
 
