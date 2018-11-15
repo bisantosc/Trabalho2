@@ -15,11 +15,10 @@ class aluno {
 public:
 
     string nome;
-    int aulat;
     int aulaf;
 
 
-    aluno(string nome, int aulat, int aulaf) {
+    aluno(string nome, int aulaf) {
        
 
     }
@@ -48,8 +47,7 @@ void carregar (vector<aluno> & lista) {
 		aluno a(nome, aulaf);
 		lista.push_back(a);
 		
-		alunos >> nome;
-		alunos >> aulaf;
+	
 		
 
 	}
@@ -81,12 +79,14 @@ void mostrar(vector<aluno> lista) {
 
 
 int main () {
+	int aulaf;
 
     cout << "Controle de Faltas" << endl;
 
-
-    vector<aluno> turma;
-    carregar (turma);
+	cin >> aulaf;
+    vector<aluno> lista;
+    carregar (lista);
+	mostrar (lista);
 
 
     return 0;

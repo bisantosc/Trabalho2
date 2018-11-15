@@ -4,6 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <string>
 
 
 using namespace std;
@@ -15,11 +16,11 @@ class aluno {
 public:
 
     string nome;
-    int aulat;
     int aulaf;
+	
 
 
-    aluno(string nome, int aulat, int aulaf) {
+    aluno(string nome, int aulaf) {
        
 
     }
@@ -63,19 +64,25 @@ void mostrar(vector<aluno> lista) {
 	}
 }
 
-//void conferir (vector<aluno> & lista) {
-    //int x;
-	//x=68*25/100;
+void conferir (vector<aluno> & lista) {
+	int aulat=68;
+	int x;
+	x = aulat*25/100;
+
+	if (x>17){
+
+		cout << "Reprovado" << endl;
+		
+	}else{
+	
+		cout << "OK" << endl;
+	}
+
+}
+
+//void calcular (vector<aluno> & lista){
+
 //}
-
-//void calcular (vector<aluno> & lista) {
-//}
-
-
-
-
-
-
 
 
 
@@ -85,11 +92,18 @@ int main () {
     cout << "Controle de Faltas" << endl;
 
 
-    vector<aluno> turma;
-    carregar (turma);
+    vector<aluno> lista;
+    carregar (lista);
+	conferir (lista);
+	mostrar (lista);
 
 
     return 0;
 }
+
+
+
+
+
 
 
