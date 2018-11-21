@@ -81,11 +81,24 @@ void mostrar(vector<aluno> lista) {
 	}
 
 		cout << lista[i].nome << ", " << lista[i].aulaf << ", " <<  status << endl;
+		
 	}
 }
 
+void gravar(vector<char> presenca) {
+	ofstream relatorio;
+	cout << "Gravando..." << endl;
 
+	relatorio.open("relatorio.txt");
 
+    relatorio << "Resultados" << endl;
+    for(int i = 0; i < presenca.size(); i++) {
+           relatorio << presenca[i].aulaf << endl;
+    }
+
+	relatorio.close();
+
+}
 
 
 
@@ -95,8 +108,11 @@ int main () {
 
 
 	vector<aluno> lista;
+	vector<aluno> presenca;
+
 	carregar (lista);
-	mostrar (lista);
+	gravar (presenca);
+	//resultados (lista ,presenca);
 
     return 0;
 }
