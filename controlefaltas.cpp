@@ -5,32 +5,35 @@
 #include <fstream>
 #include <vector>
 #include <string>
-
+#include "aluno.h"
 
 using namespace std;
 
-class aluno {
+//class aluno {
 
     //private:
 
-public:
+//public:
 
-    	string nome;
-    	int aulaf;
+//   	string nome;
+//   	int aulaf;
+//	int matricula;
 	
 	
-       aluno(string nome, int aulaf) {    
-	this->nome = nome;
-	this->aulaf = aulaf;
+//      aluno(int matricula, string nome, int aulaf) {    
+//	this->nome = nome;
+//	this->aulaf = aulaf;
+//	this->matricula = matricula;
        	
 
-    }
-};
+//    }
+//};
 
 void carregar (vector<aluno> & lista) {   
 
        string nome;
        int aulaf;
+	int matricula;
 
        ifstream alunos;                                
 
@@ -39,8 +42,10 @@ void carregar (vector<aluno> & lista) {
        if(! alunos.is_open() ) {         
 
               cerr << "erro ao abrir arquivo" << endl;
+		exit(-1);
 
        }
+	alunos >> matricula;
        alunos >> nome;
        alunos >> aulaf;
 	
@@ -48,9 +53,10 @@ void carregar (vector<aluno> & lista) {
        while (alunos.good()){      
 	
 		 
-              aluno a(nome, aulaf);     
-       	lista.push_back(a);      
-       
+        aluno a(matricula,nome, aulaf);     
+       	lista.push_back(a);   
+   
+		alunos >> matricula;       
        	alunos >> nome;             
        	alunos >> aulaf;     
 		
@@ -63,7 +69,8 @@ void carregar (vector<aluno> & lista) {
 void mostrar(vector<aluno> lista) {
 
 	string status;  
-                             
+      
+                     
 	for(int i = 0; i < lista.size(); i++) {     
 
 	       int aulat=68;
@@ -81,28 +88,37 @@ void mostrar(vector<aluno> lista) {
 		
 	       }
 
-	cout << lista[i].nome << ", " << lista[i].aulaf << ", " <<  status << endl;
+	cout << lista[i].matricula << ", " << lista[i].nome << ", " << lista[i].aulaf << ", " <<  status << endl;
 
 	}
 
 }
 
-//void gravar(vector<char>presenca) {
-//	ofstream relatorio;
+void gravar(vector<aluno> presenca,int m) {
+	ofstream relatorio;
+	int matricula;
+	string status;
 
-//	relatorio.open("relatorio.txt");
+	relatorio.open("relatorio.txt");
 
-//    relatorio << "Resultados" << endl;
-//    for(int i = 0; i < presenca.size(); i++) {
-//           relatorio << presenca[i].aulaf << endl;
-//    }
+	relatorio << "atestado de frequencia" << endl;
+    for(int i = 0; i < presenca.size(); i++) {
 
-//	relatorio.close();
+		if(matricula == m){
+    			relatorio << presenca[i].matricula << presenca[i].nome << presenca[i].aulaf << status << endl;
+    		
+		}else{
+			cout << "Matricula invalida." << endl;
+		}
+	}
+	relatorio.close();
 
-//}
+}
 
 
 int main () {
+
+	int m;
 
 	cout << "Controle de Faltas \n" << endl;
 
@@ -110,6 +126,11 @@ int main () {
 	carregar (lista);
 	mostrar (lista);
 	
+
+	cout << "Digite a matricula do aluno para verificar o atestado de frequencia: " << endl;
+	cin >> m;
+
+	gravar (lista,m);
 
     return 0;
 }
