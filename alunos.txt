@@ -1,5 +1,8 @@
+Ana
+30
 Bruno
-17
-Camila
 23
-
+Camila
+4
+Pedro
+17

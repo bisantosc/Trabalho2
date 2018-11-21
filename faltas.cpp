@@ -1,10 +1,9 @@
-//Bianca Santos
-//Rodrigo Piccini
+//
+//
 
 #include <iostream>
 #include <fstream>
 #include <vector>
-#include <string>
 
 
 using namespace std;
@@ -15,23 +14,27 @@ class aluno {
 
 public:
 
-    	string nome;
-    	int aulaf;
-	
-	
+    string nome;
+    int aulat;
+    int aulaf;
 
 
-    aluno(string nome, int aulaf) {
-	this->nome = nome;
-	this->aulaf = aulaf;
-       	
+    aluno(string nome, int aulat, int aulaf) {
+        this->nome = nome;
+        this->aulat = aulat;
+        this->aulaf = aulaf;
 
     }
 };
 
 void carregar (vector<aluno> & lista) {
     string nome;
+    int aulat;
     int aulaf;
+    //int x;
+
+    //x=68*25/100;
+
 
     ifstream alunos;
 
@@ -42,48 +45,26 @@ void carregar (vector<aluno> & lista) {
         cerr << "erro ao abrir arquivo" << endl;
 
     }
-	alunos >> nome;
-	alunos >> aulaf;
-	
-
-	while (alunos.good()){
-	
-		
-		aluno a(nome, aulaf);
-		lista.push_back(a);
-		
-		alunos >> nome;
-		alunos >> aulaf;
-		
-
-	}
-	alunos.close();
 
 }
 
-void mostrar(vector<aluno> lista) {
-	string status;
-	for(int i = 0; i < lista.size(); i++) {
+void conferir (vector<aluno> & lista) {
+    int x;
 
-	int aulat=68;
-	int x;
-	x = aulat*25/100;
-		
+    x=68*25/100;
 
-	if (x<lista[i].aulaf){
+}
 
-		status =  "Reprovado" ;
-		
-	}else{
-	
-		status = "OK" ;
-		
-	}
 
+
+
+<<<<<<< HEAD
 		cout << lista[i].nome << ", " << lista[i].aulaf << ", " <<  status << endl;
 		
 	}
 }
+=======
+>>>>>>> 502606aae62a2f66094c40baec72093e78d0b5ff
 
 void gravar(vector<char> presenca) {
 	ofstream relatorio;
@@ -104,15 +85,23 @@ void gravar(vector<char> presenca) {
 
 int main () {
 
-	cout << "Controle de Faltas" << endl;
+    cout << "Controle de Faltas" << endl;
 
 
+    vector<aluno> turma;
+    carregar (turma);
+
+<<<<<<< HEAD
 	vector<aluno> lista;
 	vector<aluno> presenca;
 
 	carregar (lista);
 	gravar (presenca);
 	//resultados (lista ,presenca);
+=======
+>>>>>>> 502606aae62a2f66094c40baec72093e78d0b5ff
 
     return 0;
 }
+
+
