@@ -4,6 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <string>
 
 
 using namespace std;
@@ -14,13 +15,21 @@ class aluno {
 
 public:
 
-    string nome;
-    int aulat;
-    int aulaf;
+    	string nome;
+    	int aulaf;
+	
+	
 
 
+<<<<<<< HEAD
     aluno(string nome, int aulat, int aulaf) {
        
+=======
+    aluno(string nome, int aulaf) {
+	this->nome = nome;
+	this->aulaf = aulaf;
+       	
+>>>>>>> 50f5a85d9119126600c2e2808cc83cb648c7e0b7
 
     }
 };
@@ -28,10 +37,6 @@ public:
 void carregar (vector<aluno> & lista) {
     string nome;
     int aulaf;
-    //int x;
-
-    //x=68*25/100;
-
 
     ifstream alunos;
 
@@ -42,6 +47,22 @@ void carregar (vector<aluno> & lista) {
         cerr << "erro ao abrir arquivo" << endl;
 
     }
+	alunos >> nome;
+	alunos >> aulaf;
+	
+
+	while (alunos.good()){
+	
+		
+		aluno a(nome, aulaf);
+		lista.push_back(a);
+		
+		alunos >> nome;
+		alunos >> aulaf;
+		
+
+	}
+	alunos.close();
 
 	while (alunos.good()){
 		
@@ -52,6 +73,7 @@ void carregar (vector<aluno> & lista) {
 		alunos >> aulaf;
 		
 
+<<<<<<< HEAD
 	}
 	alunos.close();
 
@@ -71,9 +93,30 @@ void mostrar(vector<aluno> lista) {
 //void calcular (vector<aluno> & lista) {
 //}
 
+=======
+void mostrar(vector<aluno> lista) {
+	string status;
+	for(int i = 0; i < lista.size(); i++) {
 
+	int aulat=68;
+	int x;
+	x = aulat*25/100;
+		
+>>>>>>> 50f5a85d9119126600c2e2808cc83cb648c7e0b7
 
+	if (x<lista[i].aulaf){
 
+		status =  "Reprovado" ;
+		
+	}else{
+	
+		status = "OK" ;
+		
+	}
+
+		cout << lista[i].nome << ", " << lista[i].aulaf << ", " <<  status << endl;
+	}
+}
 
 
 
@@ -82,14 +125,12 @@ void mostrar(vector<aluno> lista) {
 
 int main () {
 
-    cout << "Controle de Faltas" << endl;
+	cout << "Controle de Faltas" << endl;
 
 
-    vector<aluno> turma;
-    carregar (turma);
-
+	vector<aluno> lista;
+	carregar (lista);
+	mostrar (lista);
 
     return 0;
 }
-
-

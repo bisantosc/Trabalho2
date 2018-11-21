@@ -1,3 +1,4 @@
+
 //Bianca Santos
 //Rodrigo Piccini
 
@@ -13,23 +14,28 @@ class aluno {
 
     //private:
 
-	public:
+public:
 
-    	string nome;
-    	int aulaf;
+    string nome;
+    int aulaf;
 	
-		aluno(string nome, int aulaf) {
+
+
+    aluno(string nome, int aulaf) {
 		this->nome = nome;
 		this->aulaf = aulaf;
-       	
+       
 
     }
 };
 
 void carregar (vector<aluno> & lista) {
-
     string nome;
     int aulaf;
+    //int x;
+
+    //x=68*25/100;
+
 
     ifstream alunos;
 
@@ -42,7 +48,6 @@ void carregar (vector<aluno> & lista) {
     }
 	alunos >> nome;
 	alunos >> aulaf;
-	
 
 	while (alunos.good()){
 	
@@ -60,55 +65,46 @@ void carregar (vector<aluno> & lista) {
 }
 
 void mostrar(vector<aluno> lista) {
-
-	string status;
 	for(int i = 0; i < lista.size(); i++) {
-
-	int aulat=68;
-	int x;
-	x = aulat*25/100;
-		
-
-	if (x<lista[i].aulaf){
-
-		status =  "Reprovado" ;
-		
-	}else{
-	
-		status = "OK" ;
-		
-	}
-
-		cout << lista[i].nome << ", " << lista[i].aulaf << ", " <<  status << endl;
-		
+		cout << lista[i].nome << ", " << lista[i].aulaf << endl;
 	}
 }
 
-//void gravar(vector<char> presenca) {
-//	ofstream relatorio;
-//	cout << "Gravando..." << endl;
+void conferir (vector<aluno> & lista) {
+	int aulat=68;
+	int x;
+	x = aulat*25/100;
 
-//	relatorio.open("relatorio.txt");
+	if (x>17){
 
-//    relatorio << "Resultados" << endl;
-//    for(int i = 0; i < presenca.size(); i++) {
-//           relatorio << presenca[i].aulaf << endl;
-//    }
+		cout << "Reprovado" << endl;
+		
+	}else{
+	
+		cout << "OK" << endl;
+	}
 
-//	relatorio.close();
+}
+
+//void calcular (vector<aluno> & lista){
 
 //}
 
 
 
+
 int main () {
 
-	cout << "Controle de Faltas \n" << endl;
+	cout << "Controle de Faltas" << endl;
 
 
 	vector<aluno> lista;
 	carregar (lista);
+	conferir (lista);
 	mostrar (lista);
+
 
     return 0;
 }
+
+
