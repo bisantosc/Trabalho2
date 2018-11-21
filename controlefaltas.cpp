@@ -1,8 +1,3 @@
-Bianca Santos <bi.santosc12@gmail.com>
-	
-22:54 (Há 0 minutos)
-	
-para eu
 //Bianca Santos
 //Rodrigo Piccini
 
@@ -24,8 +19,6 @@ public:
     	int aulaf;
 	
 	
-
-
     aluno(string nome, int aulaf) {
 	this->nome = nome;
 	this->aulaf = aulaf;
@@ -85,26 +78,8 @@ void mostrar(vector<aluno> lista) {
 		
 	}
 
-		cout << lista[i].nome << ", " << lista[i].aulaf << "," <<  status << endl;
+		cout << lista[i].nome << ", " << lista[i].aulaf << ", " <<  status << endl;
 	}
-}
-
-void conferir (vector<aluno> & lista) {
-	int aulat=68;
-	int x;
-	x = aulat*25/100;
-		
-
-	if (x>17){
-
-		cout << "Reprovado" << endl;
-		
-	}else{
-	
-		cout << "OK" << endl;
-		
-	}
-
 }
 
 
@@ -112,13 +87,12 @@ void conferir (vector<aluno> & lista) {
 
 int main () {
 
-	cout << "Controle de Faltas" << endl;
-
+	cout << "Controle de Faltas \n" << endl;
 
 	vector<aluno> lista;
 	carregar (lista);
 	mostrar (lista);
-	conferir (lista);
+	
 
     return 0;
 }
