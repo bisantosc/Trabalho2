@@ -19,7 +19,7 @@ public:
     	int aulaf;
 	
 	
-    aluno(string nome, int aulaf) {
+       aluno(string nome, int aulaf) {    
 	this->nome = nome;
 	this->aulaf = aulaf;
        	
@@ -27,61 +27,65 @@ public:
     }
 };
 
-void carregar (vector<aluno> & lista) {
-    string nome;
-    int aulaf;
+void carregar (vector<aluno> & lista) {   
 
-    ifstream alunos;
+       string nome;
+       int aulaf;
 
-    alunos.open("alunos.txt");
+       ifstream alunos;                                
 
-    if(! alunos.is_open() ) {
+       alunos.open("alunos.txt");       
 
-        cerr << "erro ao abrir arquivo" << endl;
+       if(! alunos.is_open() ) {         
 
-    }
-	alunos >> nome;
-	alunos >> aulaf;
+              cerr << "erro ao abrir arquivo" << endl;
+
+       }
+       alunos >> nome;
+       alunos >> aulaf;
 	
 
-	while (alunos.good()){
+       while (alunos.good()){      
 	
-		
-		aluno a(nome, aulaf);
-		lista.push_back(a);
-		
-		alunos >> nome;
-		alunos >> aulaf;
+		 
+              aluno a(nome, aulaf);     
+       	lista.push_back(a);      
+       
+       	alunos >> nome;             
+       	alunos >> aulaf;     
 		
 
-	}
-	alunos.close();
+       }
+	alunos.close();    
 
 }
 
 void mostrar(vector<aluno> lista) {
-	string status;
-	for(int i = 0; i < lista.size(); i++) {
 
-	int aulat=68;
-	int x;
-	x = aulat*25/100;
+	string status;  
+                             
+	for(int i = 0; i < lista.size(); i++) {     
+
+	       int aulat=68;
+	       int x;
+	       x = aulat*25/100;
 		
 
-	if (x<lista[i].aulaf){
+	       if (x<lista[i].aulaf){                    
 
-		status =  "Reprovado" ;
+		       status =  "Reprovado" ;      
 		
-	}else{
+	       }else{
 	
-		status = "OK" ;
+		       status = "OK" ;
 		
+	       }
+
+	cout << lista[i].nome << ", " << lista[i].aulaf << ", " <<  status << endl;
+
 	}
 
-		cout << lista[i].nome << ", " << lista[i].aulaf << ", " <<  status << endl;
-	}
 }
-
 
 
 
