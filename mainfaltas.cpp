@@ -1,8 +1,12 @@
 #include "aluno.h"
 #include <string>
 #include <iostream>
+#include <vector>
 
 using namespace std;
+void carregar (vector<aluno> & lista);
+void mostrar(vector<aluno> lista);
+void gravar(vector<aluno> presenca,int m);
 
 int main () {
 

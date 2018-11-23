@@ -6,7 +6,7 @@
 #include <vector>
 #include <string>
 #include "aluno.h"
-#include "mainfaltas.cpp"
+//#include "mainfaltas.cpp"
 
 using namespace std;
 
