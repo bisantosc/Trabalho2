@@ -5,29 +5,30 @@
 #include <fstream>
 #include <vector>
 #include <string>
-//#include "aluno.h"
+#include "aluno.h"
+#include "mainfaltas.cpp"
 
 using namespace std;
 
-class aluno {
+//class aluno {
 
     	//private:
 
-	public:
+	//public:
 
-   	string nome;
-   	int aulaf;
-	int matricula;
+   	//string nome;
+   	//int aulaf;
+	//int matricula;
 	
 	
-      aluno(int matricula, string nome, int aulaf) {    
-	this->nome=nome;
-	this->aulaf=aulaf;
-	this->matricula=matricula;
+      //aluno(int matricula, string nome, int aulaf) {    
+	//this->nome=nome;
+	//this->aulaf=aulaf;
+	//this->matricula=matricula;
        	
 
-    }
-};
+    //}
+//};
 
 void carregar (vector<aluno> & lista) {   
 
@@ -95,20 +96,30 @@ void mostrar(vector<aluno> lista) {
 
 void gravar(vector<aluno> presenca,int m) {
 	ofstream relatorio;
-	int matricula;
 	string status;
-	string nome;
+	int aulat=68;
+	int x;
+	x = aulat*25/100;
 
 	relatorio.open("relatorio.txt");
 
 	relatorio << "atestado de frequencia" << endl;
     for(int i = 0; i < presenca.size(); i++) {
 
-		if(matricula == m){
-    			relatorio << presenca[i].matricula << presenca[i].nome << presenca[i].aulaf << status << endl;
+		if(presenca[i].matricula == m){
+			
+			 if (x<presenca[i].aulaf){                    
+
+		       		status =  "Reprovado" ;      
+		
+	       		}else{
+	
+		       		status = "OK" ;
+		
+	       		}	
+
+    			relatorio << presenca[i].matricula << ", " << presenca[i].nome << ", "<< presenca[i].aulaf << ", "<<status << endl;
     		
-		}else{
-			cout << "Matricula invalida." << endl;
 		}
 	}
 	relatorio.close();
@@ -116,22 +127,22 @@ void gravar(vector<aluno> presenca,int m) {
 }
 
 
-int main () {
+//int main () {
 
-	int m;
+//	int m;
 
-	cout << "Controle de Faltas \n" << endl;
+//	cout << "Controle de Faltas \n" << endl;
 
-	vector<aluno> lista;
-	carregar (lista);
-	mostrar (lista);
+//	vector<aluno> lista;
+//	carregar (lista);
+//	mostrar (lista);
 
-	cout << "Digite a matricula do aluno para verificar o atestado de frequencia: " << endl;
-	cin >> m;
+//	cout << "Digite a matricula do aluno para verificar o atestado de frequencia: " << endl;
+//	cin >> m;
 
-	gravar (lista,m);
+//	gravar (lista,m);
 
-    return 0;
-}
+//    return 0;
+//}
 
 
