@@ -5,29 +5,29 @@
 #include <fstream>
 #include <vector>
 #include <string>
-#include "aluno.h"
+//#include "aluno.h"
 
 using namespace std;
 
-//class aluno {
+class aluno {
 
-    //private:
+    	//private:
 
-//public:
+	public:
 
-//   	string nome;
-//   	int aulaf;
-//	int matricula;
+   	string nome;
+   	int aulaf;
+	int matricula;
 	
 	
-//      aluno(int matricula, string nome, int aulaf) {    
-//	this->nome = nome;
-//	this->aulaf = aulaf;
-//	this->matricula = matricula;
+      aluno(int matricula, string nome, int aulaf) {    
+	this->nome=nome;
+	this->aulaf=aulaf;
+	this->matricula=matricula;
        	
 
-//    }
-//};
+    }
+};
 
 void carregar (vector<aluno> & lista) {   
 
@@ -69,14 +69,13 @@ void carregar (vector<aluno> & lista) {
 void mostrar(vector<aluno> lista) {
 
 	string status;  
-      
+      	
                      
 	for(int i = 0; i < lista.size(); i++) {     
 
 	       int aulat=68;
 	       int x;
 	       x = aulat*25/100;
-		
 
 	       if (x<lista[i].aulaf){                    
 
@@ -98,6 +97,7 @@ void gravar(vector<aluno> presenca,int m) {
 	ofstream relatorio;
 	int matricula;
 	string status;
+	string nome;
 
 	relatorio.open("relatorio.txt");
 
@@ -125,7 +125,6 @@ int main () {
 	vector<aluno> lista;
 	carregar (lista);
 	mostrar (lista);
-	
 
 	cout << "Digite a matricula do aluno para verificar o atestado de frequencia: " << endl;
 	cin >> m;
